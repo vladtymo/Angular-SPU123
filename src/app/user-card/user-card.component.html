@@ -1,5 +1,11 @@
-<div class="user-card">
-    <p>Username: vladtymo</p>
-    <p>Email: blabla@gmail.com</p>
-    <p>Address: Rivne, Ukraine</p>
+<!-- One-way bindings: interpolaiton {{property}} -->
+<!-- Attribute Directives: [ngClass]='condition' class.name='condition' -->
+<!-- Pipes: {{value | pipe}} uppercase lowercase date currency percent -->
+
+<div class="user-card" [class.admin-user]="user.isAdmin == true">
+    <h4>{{user.username | uppercase}}</h4>
+    <p>ID: {{user.id}}</p>
+    <p>Email: {{user.email}}</p>
+    <p>Birthdate: {{(user.birthdate | date:'mediumDate') ?? "no data"}}</p>
+    <p>Address: {{user.address ?? "no address"}}</p>
 </div>

@@ -1,3 +1,13 @@
+header {
+    padding: 10px;
+    background-color: rgb(46, 13, 3);   
+    color: white;
+}
+.container {
+    width: 95%;
+    margin: 10px auto;
+}
+
 h1 {
     text-align: center;
 }
