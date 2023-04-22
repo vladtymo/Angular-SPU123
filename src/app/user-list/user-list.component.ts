@@ -9,4 +9,19 @@ import { IUser, USERS_MOCK } from '../user';
 export class UserListComponent {
 
   users: IUser[] = USERS_MOCK;
+
+  sortUsersByName(): void {
+    this.users.sort((a, b) => a.username.localeCompare(b.username));
+  }
+
+  removeUser(user: IUser): void {
+    const index = this.users.indexOf(user);
+    if (index == -1) return;
+
+    this.users.splice(index, 1);
+  }
+
+  addUser(user: IUser): void {
+    this.users.push(user);
+  }
 }

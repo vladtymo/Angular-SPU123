@@ -1,8 +1,24 @@
 <!-- Structural Directives: *ngIf='condition' *ngFor='let item in collection' *ngSwitch -->
+<!-- Event Binding: (eventName)="code" -->
 
-<div *ngIf="users.length == 0" class="text-center">
-    <img src="https://cdn.dribbble.com/users/665029/screenshots/16162764/media/3ea69cb1655fba401acc6c4328d38633.gif" alt="">
+<div>
+    <app-add-user (addEvent)="addUser($event)"></app-add-user>
+</div>
+
+<hr>
+<h2>User List</h2>
+<div *ngIf="users.length == 0; else usersBlock" class="text-center">
+    <img src="https://cdn.dribbble.com/users/665029/screenshots/16162764/media/3ea69cb1655fba401acc6c4328d38633.gif"
+        alt="">
     <p>No users in the database yet!</p>
 </div>
 
-<app-user-card *ngFor="let u of users" [user]="u"></app-user-card>
+<ng-template #usersBlock>
+    <div>
+        <button (click)="sortUsersByName()">Sort by Name</button>
+    </div>
+    <app-user-card *ngFor="let u of users" [user]="u" (dblclick)="removeUser(u)">
+    </app-user-card>
+    <p>* double click on the card to delete it</p>
+</ng-template>
+

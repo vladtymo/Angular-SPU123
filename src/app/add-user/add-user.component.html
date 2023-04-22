@@ -1,0 +1,29 @@
+<h2>Create New User</h2>
+
+<!-- Two-Way Bindings: [(ngModel)]="property" -->
+<!-- Better way to create a forms is using the ReactiveForms: <form [formGroup]='...'> -->
+<div class="add-user-form">
+    <div>
+        <label>Username:</label>
+        <input [(ngModel)]="user.username" type="text"/>
+    </div>
+    <div>
+        <label>Email:</label>
+        <input [(ngModel)]="user.email" type="email"/>
+    </div>
+    <div>
+        <label>Birthdate:</label>
+        <input [(ngModel)]="user.birthdate" type="date"/>
+    </div>
+    <div>
+        <label>Address:</label>
+        <input [(ngModel)]="user.address" type="text"/>
+    </div>
+    <div>
+        <label>Admin:</label>
+        <input [(ngModel)]="user.isAdmin" type="checkbox"/>
+    </div>
+    <div>
+        <button (click)="addUser()">Add</button>
+    </div>
+</div>
